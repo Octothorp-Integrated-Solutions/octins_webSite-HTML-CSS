@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header-Nav bar</title>
+    <link rel="stylesheet" href="aboutArea/aboutstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /*styles for Navigation bar starts here*/
+        .navbar {
+            background-color: rgb(112, 102, 102);
+            width: 100%;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 70px;
+            width: 150px;
+            margin-top: 4%;
+            padding: auto;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu ul li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: rgb(14, 13, 13);
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: orange;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(112, 102, 102);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 160px;
+        }
+
+        .dropdown-menu li {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: rgb(14, 13, 13);
+            background-color: rgb(112, 102, 102);
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: orange;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu.show li {
+            opacity: 1;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu ul li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            color: #000;
+        }
+        
+
+        .menu ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f8f6f4;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .menu ul li .dropdown-content li {
+            display: block;
+        }
+
+        .menu ul li .dropdown-content li a {
+            padding: 10px 15px;
+            color: orangered;
+        }
+
+        .menu ul li .dropdown-content li a:hover {
+            background-color: #0c0c0c;
+        }
+
+        .menu ul li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /*styles for Navigation bar ends here*/
+
+        /*styles for Solutions container starts here*/
+        .solutions-container {
+            margin-top: 1%;
+            display: none;
+            position: fixed;
+            top: 75px; /* Adjust this value based on your navbar height */
+            left: 0;
+            width: 100%;
+            background-color: rgb(236, 131, 93);
+            padding: 20px;
+            height: calc(100% - 50%); /* Adjust this value based on your navbar height */
+            overflow-y: auto;
+            z-index: 999; /* Ensure it appears above other content */
+        }
+
+                
+        
+
+        .solutionSubContainer1 {
+            width: 65%;
+            
+        }
+
+        .solutionSubContainer2 {
+            background-color: beige;
+        }
+
+        .solutions-container h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Arrow mark for Solutions button */
+        #solutions-btn::after {
+            content: " +";
+            font-size: 0.8em;
+        }
+
+        .solution-containerRow {
+            width: 100%;
+            height: 20%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: stretch;
+            gap: 10px;
+            background-color: #f8f6f4;
+        }
+
+        .solutionIcons {
+
+            width: 40px;
+            margin-top: 0%;
+        }
+
+        .solutionSubContainer {
+            grid-row: inherit;
+        }
+
+        .solcontainer-row {
+            margin-left: 0px;
+            margin-right: 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            gap: 0px;
+        }
+
+        .solcontainer {
+            align-content: center;
+            flex: 1;
+            background-color: rgb(236, 131, 93);
+            padding: 20px;
+            margin-top: -20px;
+            text-align: left; 
+        }
+
+        .solcontainer ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .solcontainer ul li {
+            list-style-type: none;
+            margin-left: 20px;
+            margin-top: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .solcontainer ul li::before {
+            content: '\f0da'; /* Font Awesome icon code */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #d62a2a; /* Change color as desired */
+            font-size: 16px; /* Change size as desired */
+        }
+
+        .solicon-text {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            
+        }
+
+        .solicon-text img {
+            margin-right: 10px;
+        }
+
+        .mainPageSubImg {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            display: block;
+        }
+
+        .mainPageSubImg1 {
+            width: 100%;
+            height: 22%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            display: block;
+        }
+
+        .solcontainer .icon-text span {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar starts here -->
+    <div class="navbar">
+        <div class="icon">
+            <img src="images/octinsLogo.png" class="logo" alt="Main Logo">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="about.html">About</a>
+                    <ul class="dropdown-content">
+                        <li><a href="ourCompany.html">Our Company</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                        <li><a href="passion.html">Passion</a></li>
+                        <li><a href="ourJourney.html">Our Journey</a></li>
+                    </ul>
+                </li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="#" id="solutions-btn">Solutions</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Navigation bar ends here -->
+
+    <!-- Solutions container starts here -->
+     
+    <div class="solutions-container" id="solutions-container">
+        
+        <div class="solWhite-section">
+            <div class="solcontainer-row">
+                <div class="solcontainer">
+                    <div class="solicon-text">
+                        <img src="images/ahuIcon.png" class="solutionIcons">
+                        <span>AHU Automation</span>
+                    </div>
+                    <ul>
+                        <li>VFD</li>
+                        <li>EC</li>
+                        <li>TFAs/Air Washer</li>
+                        <li>Chilled Water Flow Control</li>
+                    </ul>
+                    <div class="solicon-text">
+                        <img src="images/fleetManagementIcon.png" class="solutionIcons">
+                        <span>Fleet Management</span>
+                    </div>
+                    <div class="solicon-text">
+                        <img src="images/highLevelOptimitation.webp" class="solutionIcons">
+                        <span>High Side Optimization</span>
+                    </div>
+                    <ul>
+                        <li>Chiller integration</li>
+                        <li>Secondary Pump Automation</li>
+                    </ul>
+                    
+                    
+                </div>
+                
+                <div class="solcontainer">
+                    <div class="solicon-text">
+                        <img src="images/assetManagementIcon.webp" class="solutionIcons">
+                        <span>Industry Asset Management</span>
+                    </div>
+                    <div class="solicon-text">
+                        <img src="images/utilitiesEnvIcon.png" class="solutionIcons">
+                        <span>Utilities / Environment Monitoring</span>
+                    </div>
+                    <ul>
+                        <li>Grid</li>
+                        <li>Air Quality</li>
+                        <li>Water</li>
+                        <li>Gas Flow</li>
+                        <li>DG Set</li>
+                        <li>Fire Alarm</li>
+                    </ul>
+                    
+                    <div class="solicon-text">
+                        <img src="images/vrfVrvIntegrationDuctableAutomation.webp" class="solutionIcons">
+                        <span>VRF/VRV Integration & Ductable Automation</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Solutions container ends here -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const solutionsBtn = document.getElementById('solutions-btn');
+            const solutionsContainer = document.getElementById('solutions-container');
+            
+            solutionsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                solutionsContainer.style.display = solutionsContainer.style.display === 'none' || solutionsContainer.style.display === '' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
